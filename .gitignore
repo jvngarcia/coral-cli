@@ -2,3 +2,5 @@ __pycache__/
 logs/
 *.log
 *.lock
+.env/
+.venv/
