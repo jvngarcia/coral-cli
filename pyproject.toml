@@ -7,6 +7,10 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+click = "^8.1.7"
+
+[tool.poetry.scripts]
+coral = "coral_cli.cli:init"
 
 [build-system]
 requires = ["poetry-core"]
