@@ -17,7 +17,7 @@ if __name__ == "__main__":
 """)
 
 
-@click.command(name='init')
+@click.command(name='init', help='init a CLI application')
 @click.option('--name', '-n', help='Name of the project', required=True, type=click.STRING)
 @click.option('--description', '-d', help='Description of the project', required=False, type=click.STRING)
 def cli_init( name: str, description: str ):
