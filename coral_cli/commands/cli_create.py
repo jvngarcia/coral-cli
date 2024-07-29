@@ -45,7 +45,7 @@ def cli_command(name: str, description: str):
   Create a new command
   """
   
-  click.echo('Creating a new command: {name}')
+  click.echo(f'Creating a new command: {name}')
   
   # Si no existe el directorio, lo creamos
   if not os.path.exists(SUBCOMMAND_DIR):
@@ -65,7 +65,7 @@ def cli_group(name: str, description: str):
   Create a new group
   """
   
-  click.echo('Creating a new group: {name}')
+  click.echo(f'Creating a new group: {name}')
   
   # Si no existe el directorio, lo creamos
   if not os.path.exists(SUBCOMMAND_DIR):
