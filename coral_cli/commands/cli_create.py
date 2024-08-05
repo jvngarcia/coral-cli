@@ -2,7 +2,7 @@ import click
 import os
 from string import Template
 from pathlib import Path
-
+from ..app.commands.create.infrastructure.create_controller import CreateController
 
 SUBCOMMAND_DIR = Path("coral_cli/commands")
 
@@ -44,17 +44,9 @@ def cli_command(name: str, description: str):
   """
   Create a new command
   """
-  
   click.echo(f'Creating a new command: {name}')
-  
-  # Si no existe el directorio, lo creamos
-  if not os.path.exists(SUBCOMMAND_DIR):
-    os.makedirs(SUBCOMMAND_DIR)
-  
-  # Crear archivo {name}.py
-  with open(f'{SUBCOMMAND_DIR}/cli_{name}.py', 'w') as f:
-    f.write(template.substitute(name=name, description=description))
-  
+  controller = CreateController()
+  controller.create(name, description)
   click.echo('Done!')
 
 @cli_create.command(name='group', help='Create a new group')
