@@ -10,8 +10,12 @@ class OsProjectCreateRepository(CreateRepository):
     self.template = ProjectBuilder()
   
   def generate(self, project: Project):
-    if not os.path.exists(self.dir):
-      os.makedirs(self.dir)
+    self.assure_exists()
       
     with open(f'{self.dir}/cli_{project.name.value}.py', 'w') as f:
       f.write(self.template.archive(project))
+  
+
+  def assure_exists(self):
+    if not os.path.exists(self.dir):
+      os.makedirs(self.dir)
