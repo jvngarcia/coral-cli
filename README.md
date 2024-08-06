@@ -1,3 +1,3 @@
-# Coral CLI - Framework
+# Coral CLI
 
-El framework dedicado a la creación de sistemas cli.
+Pequeño sistema de generación de archivos dedicado a proyectos CLI en Python.
