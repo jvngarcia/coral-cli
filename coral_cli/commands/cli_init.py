@@ -1,21 +1,7 @@
 import click
 import os
 from string import Template
-
-
-template = Template("""
-# $name
-# $description
-import click
-
-@click.command()
-def cli():
-  click.echo("Hello World!")
-
-if __name__ == "__main__":
-  cli()
-""")
-
+from coral_cli.app.commands.init.infrastructure.init_controller import InitController
 
 @click.command(name='init', help='init a CLI application')
 @click.option('--name', '-n', help='Name of the project', required=True, type=click.STRING)
@@ -25,15 +11,7 @@ def cli_init( name: str, description: str ):
   Initialize your CLI application
   """
   click.echo(f'Initializing the CLI application: {name}')
-  
-  
-  # Si no existe el directorio, lo creamos
-  if not os.path.exists(name):
-    os.makedirs(name)
-  
-  # Crear archivo main.py
-  with open(f'{name}/main.py', 'w') as f:
-    f.write(template.substitute(name=name, description=description))
-  
+  controller = InitController()
+  controller.run(name, description) 
   
   click.echo('Done!')
