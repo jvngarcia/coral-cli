@@ -3,13 +3,7 @@ import importlib
 from pathlib import Path
 import re
 
-
-
-
 SUBCOMMAND_DIR = Path("coral_cli/commands")
-
-
-
 
 @click.group()
 def cli():
